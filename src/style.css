@@ -49,7 +49,7 @@ a::after {
   height: 100%;
   background-color: #262626;
   transition: 0.5s;
-  transform: rotateY(90deg);
+  transform: rotateX(90deg);
   z-index: -10;
 }
 
@@ -57,10 +57,7 @@ a:hover {
   color: white;
 }
 
+a:hover:before,
 a:hover::before {
   transform: rotateX(0);
-}
-
-a:hover::after {
-  transform: rotateY(0);
 }
