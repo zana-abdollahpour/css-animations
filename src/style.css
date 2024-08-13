@@ -24,11 +24,16 @@ a {
   padding: 40px 80px;
   text-transform: uppercase;
   transition: all 0.5s;
+  overflow: hidden;
   position: relative;
 }
 
 a::before {
-  content: "";
+  content: "Gigidi!";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
   position: absolute;
   top: 0;
   left: 0;
@@ -36,28 +41,13 @@ a::before {
   height: 100%;
   background-color: #262626;
   transition: 0.5s;
-  transform: rotateX(90deg);
-  z-index: -10;
+  transform: translateY(100%);
+  z-index: 10;
 }
-
-a::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #262626;
-  transition: 0.5s;
-  transform: rotateX(90deg);
-  z-index: -10;
-}
-
 a:hover {
   color: white;
 }
 
-a:hover:before,
 a:hover::before {
-  transform: rotateX(0);
+  transform: translateY(0);
 }
