@@ -11,51 +11,82 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffff;
+  background: #272727;
 }
 
 a {
+  width: 220px;
+  height: 80px;
+  color: #ff0;
+  background-color: transparent;
+  font-size: 26px;
   text-decoration: none;
-  color: #262626;
-  font-size: 40px;
-  font-family: "roboto", sans-serif;
-  background-color: #f1c40f;
-  color: white;
-  padding: 40px 80px;
-  transition: all 0.1s;
-  letter-spacing: 2px;
   text-transform: uppercase;
-  position: relative;
-}
-
-a::before,
-a::after {
-  content: "Hover Me";
-  text-transform: uppercase;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: rotateX(270deg);
+  text-align: center;
+  line-height: 80px;
   transition: all 0.5s;
-  transform-origin: top;
-}
+  position: relative;
+  z-index: 10;
 
-a::before {
-  background-color: #2ce701;
-  transition-delay: 0.3s;
-}
+  &:hover {
+    color: #262626;
+    transition-delay: 0.4s;
+  }
 
-a::after {
-  background-color: #ff4500;
-  transition-delay: 0.6s;
-}
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #ff0;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+    opacity: 0;
+    z-index: -10;
+  }
 
-a:hover::before,
-a:hover::after {
-  transform: rotateX(0deg);
+  &::before {
+    left: 0;
+    box-shadow: -100px 0 0 #ff0;
+  }
+
+  &::after {
+    right: 0;
+    box-shadow: 100px 0 0 #ff0;
+  }
+
+  &:hover::before {
+    left: 50%;
+    box-shadow: 30px 0 0 #ff0;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 1;
+  }
+
+  &:hover::after {
+    right: 50%;
+    box-shadow: -30px 0 0 #ff0;
+    transform: translateX(50%) translateY(-50%);
+    opacity: 1;
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff0;
+    border-radius: 8px;
+    transform: scale(0);
+    transition: all 0.3s;
+    z-index: -10;
+  }
+
+  &:hover span {
+    transform: scale(1);
+    transition-delay: 0.4s;
+  }
 }
