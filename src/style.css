@@ -19,29 +19,43 @@ a {
   color: #262626;
   font-size: 40px;
   font-family: "roboto", sans-serif;
-  background: none;
-  border: 3px solid #262626;
+  background-color: #f1c40f;
+  color: white;
   padding: 40px 80px;
   transition: all 0.1s;
-  background: transparent;
-  overflow: hidden;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   position: relative;
-  z-index: 10;
 }
 
-a::before {
-  content: "";
+a::before,
+a::after {
+  content: "Hover Me";
+  text-transform: uppercase;
   position: absolute;
   top: 0;
   left: 0;
-  height: 0%;
   width: 100%;
-  background-color: orange;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateX(270deg);
   transition: all 0.5s;
-  border-radius: 0 0 50% 50%;
-  z-index: -10;
+  transform-origin: top;
 }
 
-a:hover::before {
-  height: 200%;
+a::before {
+  background-color: #2ce701;
+  transition-delay: 0.3s;
+}
+
+a::after {
+  background-color: #ff4500;
+  transition-delay: 0.6s;
+}
+
+a:hover::before,
+a:hover::after {
+  transform: rotateX(0deg);
 }
