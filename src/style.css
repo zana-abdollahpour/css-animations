@@ -11,82 +11,45 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background: #336699;
   overflow: hidden;
   font-family: sans-serif;
 }
 
 ul {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
 
-  &:hover a {
-    color: #00000020;
+li {
+  position: relative;
+  list-style: none;
+}
+
+a {
+  position: relative;
+  font-size: 4em;
+  text-decoration: none;
+  letter-spacing: 2px;
+  line-height: 1em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px #00000050;
+
+  &:hover::before {
+    width: 100%;
+    border-right: 8px solid #01485e;
   }
 
-  & li {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-
-    &:nth-child(1) a::before {
-      background-color: #fff542;
-    }
-
-    &:nth-child(2) a::before {
-      background-color: #f12542;
-    }
-
-    &:nth-child(3) a::before {
-      background-color: #aa6542;
-    }
-
-    &:nth-child(4) a::before {
-      background-color: #236780;
-    }
-
-    &:nth-child(5) a::before {
-      background-color: #ff46ff;
-    }
-  }
-
-  & a {
-    text-decoration: none;
-    color: #333333;
-    font-size: 3em;
-    padding: 5px 20px;
-    display: inline-block;
-    font-weight: 700;
-    transform: all 0.5s;
-
-    &:hover {
-      color: #000000;
-      background-color: transparent;
-
-      &::before {
-        content: attr(data-text);
-        opacity: 1;
-        letter-spacing: 10px;
-      }
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #00000010;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 5em;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 500px;
-      opacity: 0;
-      transition: all 0.5s;
-      width: 100vw;
-      height: 100vh;
-      z-index: -10;
-    }
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+    color: #01485e;
+    -webkit-text-stroke: 1px #01485e;
+    width: 0%;
+    overflow: hidden;
+    transition: width 0.6s;
   }
 }
