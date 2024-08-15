@@ -18,41 +18,50 @@
 
 a {
   text-decoration: none;
-  text-transform: uppercase;
-  font-size: 24px;
-  padding: 25px 50px;
-  background-color: white;
-  color: #777777;
-  border-radius: 1000px;
   position: relative;
-  transition: all 0.2s;
+  font-size: 24px;
+  font-weight: bold;
+  width: 250px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #663399;
+  border: 4px solid #663399;
+  overflow: hidden;
+  transition: all 0.5s;
+  transition-delay: 0.2s;
   z-index: 0;
 
-  &::before {
+  &:hover {
+    color: #ffdd44;
+  }
+
+  &::before,
+  &::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    border-radius: 1000px;
-    transition: all 0.4s;
+    inset: -4px;
+    border-top: 40px solid #663399;
+    border-bottom: 40px solid #663399;
+    transition: all 0.5s;
     z-index: -10;
   }
 
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px #00000020;
-
-    &::before {
-      transform: scaleX(1.5) scaleY(2);
-      opacity: 0;
-    }
+  &::before {
+    border-right: 40px solid transparent;
+    transform: translateX(-100%);
   }
 
-  &:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px #00000020;
+  &::after {
+    border-left: 40px solid transparent;
+    transform: translateX(100%);
+  }
+
+  &:hover::before,
+  &:hover::after {
+    transform: translateX(0%);
   }
 }
