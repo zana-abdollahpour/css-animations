@@ -11,122 +11,121 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #222222;
+  background: #0c2461;
   height: 100vh;
   z-index: -50;
 }
 
 .container {
+  width: 600px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 150px;
 }
 
-a {
+.btn {
   position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 20px 35px;
-  border: 2px solid #1e9bff;
-  color: #1e9bff;
-  font-size: 20px;
-  letter-spacing: 4px;
-  transition: 0.5s;
-  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 155px;
+  height: 50px;
+  margin: 20px;
 
-  &:hover {
-    color: white;
-    border: 2px solid transparent;
+  &:hover > a {
+    letter-spacing: 3px;
+  }
+
+  &:hover::before {
+    bottom: 0;
+    height: 50%;
+    width: 80%;
+    border-radius: 30px;
   }
 
   &::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background-color: #1e9bff;
-    transform: scale(0);
-    transition: 0.5s;
-    z-index: -10;
+    bottom: -5px;
+    left: 50%;
+    width: 30px;
+    height: 10px;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    transition: all 0.5s;
+    transition-delay: 0s;
+    background: #663399;
+  }
+
+  &:hover::after {
+    top: 0;
+    height: 50%;
+    width: 80%;
+    border-radius: 30px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 30px;
+    height: 10px;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    transition: all 0.5s;
+    transition-delay: 0s;
+    background: #663399;
+  }
+
+  &:nth-child(1)::before,
+  &:nth-child(1)::after {
+    background-color: #663399;
+    box-shadow: 0 0 5px #663399, 0 0 15px #663399, 0 0 30px #663399,
+      0 0 60px #663399;
+  }
+}
+
+.btn > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(250, 52, 52, 0.1);
+  border-bottom: rgba(255, 255, 255, 0.1);
+  z-index: 10;
+  color: #ffffff;
+  border-radius: 30px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.5s;
+  backdrop-filter: blur(15px);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+    transform: skewX(45deg);
+    transition: all 0.5s;
+    transition-delay: 0.5s;
   }
 
   &:hover::before {
-    transform: scale(1);
-    transition-delay: 0.5s;
-    box-shadow: 0 0 10px #1e9bff, 0 0 30px #1e9bff, 0 0 60px #1e9bff;
-  }
-
-  & > span {
-    position: absolute;
-    background: #1e9bff;
-    box-shadow: 0 0 10px #1e9bff, 0 0 20px #1e9bff, 0 0 30px #1e9bff,
-      0 0 50px #1e9bff, 0 0 100px #1e9bff;
-
-    &:nth-child(1),
-    &:nth-child(3) {
-      width: 40px;
-      height: 4px;
-    }
-
-    &:nth-child(2),
-    &:nth-child(4) {
-      width: 4px;
-      height: 40px;
-    }
-
-    &:nth-child(1) {
-      top: calc(50% - 2px);
-      left: -50px;
-      transform-origin: left;
-      transition-delay: 0.25s;
-      transition: 0.5s ease-in-out;
-    }
-
-    &:nth-child(2) {
-      left: calc(50% - 2px);
-      top: -50px;
-      transform-origin: top;
-      transition-delay: 0.25s;
-      transition: 0.5s ease-in-out;
-    }
-
-    &:nth-child(3) {
-      top: calc(50% - 2px);
-      right: -50px;
-      transform-origin: right;
-      transition-delay: 0.25s;
-      transition: 0.5s ease-in-out;
-    }
-
-    &:nth-child(4) {
-      left: calc(50% - 2px);
-      bottom: -50px;
-      transform-origin: bottom;
-      transition-delay: 0.25s;
-      transition: 0.5s ease-in-out;
-    }
-  }
-
-  &:hover > span {
+    transform: skewX(45deg) translateX(200%);
     transition-delay: 0s;
-  }
-
-  &:hover > span:nth-child(1) {
-    left: 50%;
-    transform: scaleX(0);
-  }
-
-  &:hover > span:nth-child(2) {
-    top: 50%;
-    transform: scaleY(0);
-  }
-
-  &:hover > span:nth-child(3) {
-    right: 50%;
-    transform: scaleX(0);
-  }
-
-  &:hover > span:nth-child(4) {
-    bottom: 50%;
-    transform: scaleY(0);
   }
 }
