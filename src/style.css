@@ -19,50 +19,40 @@
 a {
   text-decoration: none;
   text-transform: uppercase;
-  font-weight: 700;
+  font-size: 24px;
+  padding: 25px 50px;
+  background-color: white;
+  color: #777777;
+  border-radius: 1000px;
   position: relative;
-  letter-spacing: 7px;
-  padding: 18px 30px;
-  background-color: transparent;
-  font-size: 28px;
+  transition: all 0.2s;
   z-index: 0;
-  color: white;
 
   &::before {
     content: "";
     position: absolute;
-    height: 100%;
-    width: 50%;
-    left: -1%;
-    top: -5px;
-    background-color: #993366;
-    transform: skewX(30deg);
-    z-index: -10;
-    transition: all 0.3s cubic-bezier(0.7, -0.55, 0.25, 1.55);
-  }
-
-  &:hover::before {
-    transform: skewX(0deg);
-    left: 50%;
     top: 0;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
+    left: 0;
+    width: 100%;
     height: 100%;
-    width: 50%;
-    left: 51%;
-    top: 5px;
-    background-color: #336699;
-    transform: skewX(30deg);
+    background-color: white;
+    border-radius: 1000px;
+    transition: all 0.4s;
     z-index: -10;
-    transition: all 0.3s cubic-bezier(0.7, -0.55, 0.25, 1.55);
   }
 
-  &:hover::after {
-    transform: skewX(0deg);
-    left: 0%;
-    top: 0;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px #00000020;
+
+    &::before {
+      transform: scaleX(1.5) scaleY(2);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px #00000020;
   }
 }
