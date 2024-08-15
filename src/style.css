@@ -7,61 +7,126 @@
 }
 
 #app {
-  height: 100vh;
   font-family: sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffdd44;
+  background: #222222;
+  height: 100vh;
   z-index: -50;
 }
 
-a {
-  text-decoration: none;
-  position: relative;
-  font-size: 24px;
-  font-weight: bold;
-  width: 250px;
-  height: 80px;
+.container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 150px;
+}
+
+a {
+  position: relative;
+  text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #663399;
-  border: 4px solid #663399;
-  overflow: hidden;
-  transition: all 0.5s;
-  transition-delay: 0.2s;
+  padding: 20px 35px;
+  border: 2px solid #1e9bff;
+  color: #1e9bff;
+  font-size: 20px;
+  letter-spacing: 4px;
+  transition: 0.5s;
   z-index: 0;
 
   &:hover {
-    color: #ffdd44;
-  }
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    inset: -4px;
-    border-top: 40px solid #663399;
-    border-bottom: 40px solid #663399;
-    transition: all 0.5s;
-    z-index: -10;
+    color: white;
+    border: 2px solid transparent;
   }
 
   &::before {
-    border-right: 40px solid transparent;
-    transform: translateX(-100%);
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #1e9bff;
+    transform: scale(0);
+    transition: 0.5s;
+    z-index: -10;
   }
 
-  &::after {
-    border-left: 40px solid transparent;
-    transform: translateX(100%);
+  &:hover::before {
+    transform: scale(1);
+    transition-delay: 0.5s;
+    box-shadow: 0 0 10px #1e9bff, 0 0 30px #1e9bff, 0 0 60px #1e9bff;
   }
 
-  &:hover::before,
-  &:hover::after {
-    transform: translateX(0%);
+  & > span {
+    position: absolute;
+    background: #1e9bff;
+    box-shadow: 0 0 10px #1e9bff, 0 0 20px #1e9bff, 0 0 30px #1e9bff,
+      0 0 50px #1e9bff, 0 0 100px #1e9bff;
+
+    &:nth-child(1),
+    &:nth-child(3) {
+      width: 40px;
+      height: 4px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(4) {
+      width: 4px;
+      height: 40px;
+    }
+
+    &:nth-child(1) {
+      top: calc(50% - 2px);
+      left: -50px;
+      transform-origin: left;
+      transition-delay: 0.25s;
+      transition: 0.5s ease-in-out;
+    }
+
+    &:nth-child(2) {
+      left: calc(50% - 2px);
+      top: -50px;
+      transform-origin: top;
+      transition-delay: 0.25s;
+      transition: 0.5s ease-in-out;
+    }
+
+    &:nth-child(3) {
+      top: calc(50% - 2px);
+      right: -50px;
+      transform-origin: right;
+      transition-delay: 0.25s;
+      transition: 0.5s ease-in-out;
+    }
+
+    &:nth-child(4) {
+      left: calc(50% - 2px);
+      bottom: -50px;
+      transform-origin: bottom;
+      transition-delay: 0.25s;
+      transition: 0.5s ease-in-out;
+    }
+  }
+
+  &:hover > span {
+    transition-delay: 0s;
+  }
+
+  &:hover > span:nth-child(1) {
+    left: 50%;
+    transform: scaleX(0);
+  }
+
+  &:hover > span:nth-child(2) {
+    top: 50%;
+    transform: scaleY(0);
+  }
+
+  &:hover > span:nth-child(3) {
+    right: 50%;
+    transform: scaleX(0);
+  }
+
+  &:hover > span:nth-child(4) {
+    bottom: 50%;
+    transform: scaleY(0);
   }
 }
