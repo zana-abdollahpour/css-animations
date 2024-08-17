@@ -16,59 +16,31 @@ body {
   perspective: 100px;
 }
 
-.cradle {
-  display: flex;
-  border-top: 10px solid #ffffff;
-}
-
-span {
-  position: relative;
-  display: block;
-  width: 4px;
-  height: 300px;
-  margin: 0 28px;
+.loading {
+  width: 300px;
+  height: 3px;
   background-color: #ffffff;
-  transform-origin: top;
-
-  &:first-child {
-    animation: left-arm 2s ease-in infinite;
-  }
-
-  &:last-child {
-    animation: right-arm 2s ease-in infinite;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #ffffff;
-  }
+  animation: line 2s alternate infinite;
 }
 
-@keyframes left-arm {
-  0%,
-  50%,
-  100% {
-    transform: rotate(0deg);
+@keyframes line {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
   }
-  25% {
-    transform: rotate(60deg);
-  }
-}
 
-@keyframes right-arm {
-  0%,
-  50%,
-  100% {
-    transform: rotate(0deg);
+  45% {
+    transform: scaleX(1);
+    transform-origin: left;
   }
-  25% {
-    transform: rotate(-60deg);
+
+  50% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
   }
 }
