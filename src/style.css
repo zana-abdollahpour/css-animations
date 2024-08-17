@@ -15,59 +15,58 @@ body {
   align-items: center;
 }
 
-h2 {
+.container {
   position: relative;
-  display: flex;
-  gap: 1rem;
-  color: #ffffff;
-  font-size: 4em;
-  cursor: pointer;
-  text-transform: uppercase;
+  width: 600px;
+  height: 500px;
+  z-index: 0;
+
+  &:hover .card {
+    position: absolute;
+    opacity: 1;
+    z-index: 10;
+    opacity: 1;
+    transform: translateX(calc(-50% + calc(350px * var(--i)))) translateY(-50%);
+  }
+
+  &:hover .content {
+    opacity: 1;
+    transition-delay: calc(0.2s * var(--j));
+  }
 }
 
-h2 span {
-  font-family: sans-serif;
+.card {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  background: #ffffff;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  border-radius: 16px;
+  transform: translateX(-50%) translateY(calc(-50% + 50px * var(--i)))
+    rotate(40deg) skew(-20deg, -10deg) scale(0.6);
+  box-shadow: 25px 20px 140px #00000040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  z-index: calc(-1 * var(--i));
+
+  &:nth-child(2) {
+    opacity: 0.8;
+    mix-blend-mode: color-burn;
+  }
+
+  &:nth-child(3) {
+    opacity: 0.6;
+  }
+}
+
+.content {
   position: relative;
-  filter: blur(5px);
-  transition: all 0.6s;
-
-  &:hover {
-    filter: blur(0);
-
-    em::before,
-    em::after {
-      opacity: 1;
-    }
-  }
-
-  em {
-    font-style: normal;
-    text-align: center;
-
-    &::before {
-      content: "";
-      position: absolute;
-      width: 2px;
-      height: 8px;
-      background-color: #ffffff;
-      top: 0;
-      left: -2px;
-      box-shadow: 0 68px #ffffff, 48px 68px #ffffff, 48px 0 #ffffff;
-      opacity: 0;
-      transition: all 0.4s;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      width: 8px;
-      height: 2px;
-      background-color: #ffffff;
-      top: 0;
-      left: -2px;
-      box-shadow: 0 74px #ffffff, 40px 74px #ffffff, 40px 0 #ffffff;
-      opacity: 0;
-      transition: all 0.4s;
-    }
-  }
+  padding: 25px;
+  color: #333333;
+  transition: all 0.5s;
+  opacity: 0;
 }
