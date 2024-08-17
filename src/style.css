@@ -16,33 +16,28 @@ body {
   perspective: 100px;
 }
 
-.background {
-  height: 100%;
-  width: 100%;
-  background: url(bg.jpg);
-  background-position: bottom left;
-  animation: driving 30s linear infinite;
+h1 {
+  color: #ffffff;
+  font-size: 50px;
 }
 
-.car {
-  position: absolute;
-  left: 300px;
-  bottom: -50px;
-  width: 200px;
-}
-
-.motorbike {
-  position: absolute;
-  left: 700px;
-  bottom: 55px;
-  width: 150px;
-}
-
-@keyframes driving {
-  from {
-    background-position: bottom left;
+span {
+  &::before {
+    content: "cruelty";
+    text-transform: uppercase;
+    color: #1b1464;
+    animation: word-switch 5s infinite;
   }
-  to {
-    background-position: bottom right;
+}
+
+@keyframes word-switch {
+  0% {
+    content: "cruelty";
+  }
+  50% {
+    content: "beauty";
+  }
+  100% {
+    content: "voice";
   }
 }
