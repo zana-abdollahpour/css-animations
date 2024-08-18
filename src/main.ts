@@ -1,8 +1,15 @@
 import "./style.css";
 
-const card = document.querySelector(".card") as HTMLDivElement;
-const toggle = document.querySelector(".toggle") as HTMLDivElement;
+const text = document.querySelector(".text") as HTMLHeadingElement;
 
-toggle.addEventListener("click", () => {
-  card.classList.toggle("active");
-});
+const htmlSpans = text.innerHTML
+  .split("")
+  .map(
+    (char, i) =>
+      `<span style="animation-duration: ${
+        Math.random() * 5
+      }s; filter: hue-rotate(${i * 50}deg)">${char}</span>`
+  )
+  .join("");
+
+text.innerHTML = htmlSpans;

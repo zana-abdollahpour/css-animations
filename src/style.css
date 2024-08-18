@@ -12,136 +12,34 @@ body {
   justify-content: center;
   align-items: center;
   height: 100dvh;
-  background-color: #0fece1;
+  background-color: #ffffff;
 }
 
-.card {
+h2 {
   position: relative;
-  width: 350px;
-  height: 85px;
-  background-color: #192a56;
-  border-radius: 20px;
-  transition: all 0.5s;
-
-  &.active {
-    height: 420px;
-
-    .toggle span {
-      transform: translate(-50%, -70%) rotate(225deg);
-    }
-  }
-}
-
-.toggle {
-  position: absolute;
-  width: 70px;
-  height: 60px;
-  background-color: #192a56;
-  bottom: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-bottom-right-radius: 35px;
-  border-bottom-left-radius: 35px;
-  cursor: pointer;
-
-  &::before {
-    content: "";
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    background-color: transparent;
-    left: -33px;
-    border-top-right-radius: 35px;
-    box-shadow: 10px -10px 0 10px #192a56;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    background-color: transparent;
-    right: -33px;
-    border-top-left-radius: 35px;
-    box-shadow: -10px -10px 0 10px #192a56;
-  }
+  font-size: 3em;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #ffffff20;
 
   span {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-bottom: 3px solid #ffffff;
-    border-right: 3px solid #ffffff;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -70%) rotate(45deg);
-    transition: all 0.5s;
-  }
-}
-
-.content {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-
-  .contentbox {
     position: relative;
-    padding: 20px;
-    text-align: center;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    h2 {
-      color: #ffffff;
-      font-weight: 500;
-      font-size: 1.25em;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      line-height: 1.1em;
-
-      span {
-        font-size: 0.75em;
-        font-weight: 400;
-        text-transform: capitalize;
-      }
-    }
+    animation: animate-text 1s linear infinite;
   }
 }
 
-.imgbox {
-  position: relative;
-  width: 250px;
-  height: 250px;
-  background-color: #ffffff;
-  margin-top: 20px;
-  box-shadow: -10px 10px 10px #00000015;
-  border-radius: 1rem;
-  overflow: hidden;
-
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+@keyframes animate-text {
+  0%,
+  20% {
+    color: #00000050;
   }
-}
-
-button {
-  position: relative;
-  margin-top: 20px;
-  padding: 10px 35px;
-  border-radius: 25px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 1em;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 500;
-  color: #333333;
+  21%,
+  79% {
+    color: #e1ff00;
+  }
+  80%,
+  100% {
+    color: #00000050;
+  }
 }
