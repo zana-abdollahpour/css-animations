@@ -1,10 +1,7 @@
 import "./style.css";
 
-const circle1 = document.querySelector(".circle1") as HTMLDivElement;
-const circle2 = document.querySelector(".circle2") as HTMLDivElement;
+const toggle = document.querySelector(".toggle") as HTMLDialogElement;
 
-window.addEventListener("scroll", () => {
-  const { scrollY } = window;
-  circle1.style.clipPath = `circle(${150 + scrollY * 0.75}px at 0 0)`;
-  circle2.style.clipPath = `circle(${150 + scrollY}px at 100% 100%)`;
+toggle.addEventListener("click", () => {
+  toggle.classList.toggle("active");
 });
