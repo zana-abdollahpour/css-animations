@@ -1,15 +1,10 @@
 import "./style.css";
 
-const text = document.querySelector(".text") as HTMLHeadingElement;
+const circle1 = document.querySelector(".circle1") as HTMLDivElement;
+const circle2 = document.querySelector(".circle2") as HTMLDivElement;
 
-const htmlSpans = text.innerHTML
-  .split("")
-  .map(
-    (char, i) =>
-      `<span style="animation-duration: ${
-        Math.random() * 5
-      }s; filter: hue-rotate(${i * 50}deg)">${char}</span>`
-  )
-  .join("");
-
-text.innerHTML = htmlSpans;
+window.addEventListener("scroll", () => {
+  const { scrollY } = window;
+  circle1.style.clipPath = `circle(${150 + scrollY * 0.75}px at 0 0)`;
+  circle2.style.clipPath = `circle(${150 + scrollY}px at 100% 100%)`;
+});
