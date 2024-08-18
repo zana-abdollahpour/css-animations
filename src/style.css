@@ -1,88 +1,147 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  background: #f9f9f9;
-  min-height: 100vh;
-}
-
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 30px 100px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  z-index: 100;
-}
-
-.logo {
-  font-size: 2em;
-  color: #359381;
-  margin-right: 270px;
-}
-
-.navigation a {
-  text-decoration: none;
-  color: #359381;
-  padding: 6px 15px;
-  border-radius: 20px;
-  margin: 0 10px;
-  font-weight: 600;
-  transition: 0.5s;
-}
-
-a:hover {
-  background: #359381;
-  color: #fff;
-}
-
-.parallax {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  height: 100dvh;
+  background-color: #0fece1;
 }
 
-.parallax img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  pointer-events: none;
+.card {
+  position: relative;
+  width: 350px;
+  height: 85px;
+  background-color: #192a56;
+  border-radius: 20px;
+  transition: all 0.5s;
+
+  &.active {
+    height: 420px;
+
+    .toggle span {
+      transform: translate(-50%, -70%) rotate(225deg);
+    }
+  }
 }
 
-#text {
+.toggle {
   position: absolute;
-  font-size: 5em;
-  color: #fff;
-  text-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.2);
+  width: 70px;
+  height: 60px;
+  background-color: #192a56;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-right-radius: 35px;
+  border-bottom-left-radius: 35px;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    left: -33px;
+    border-top-right-radius: 35px;
+    box-shadow: 10px -10px 0 10px #192a56;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    right: -33px;
+    border-top-left-radius: 35px;
+    box-shadow: -10px -10px 0 10px #192a56;
+  }
+
+  span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-bottom: 3px solid #ffffff;
+    border-right: 3px solid #ffffff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%) rotate(45deg);
+    transition: all 0.5s;
+  }
 }
 
 .content {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+
+  .contentbox {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h2 {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 1.25em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.1em;
+
+      span {
+        font-size: 0.75em;
+        font-weight: 400;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+.imgbox {
   position: relative;
-  background: #003329;
-  padding: 100px;
+  width: 250px;
+  height: 250px;
+  background-color: #ffffff;
+  margin-top: 20px;
+  box-shadow: -10px 10px 10px #00000015;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
-.content h2 {
-  font-size: 3em;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.content p {
+button {
+  position: relative;
+  margin-top: 20px;
+  padding: 10px 35px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
   font-size: 1em;
-  color: #fff;
-  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  color: #333333;
 }
